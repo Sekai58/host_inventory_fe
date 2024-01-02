@@ -23,7 +23,7 @@ const ApprovedItems: React.FC<IRequestedItems> = ({user,query}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/list-approved-item',{
+        const response = await axios.get('https://inventoryserver.adaptable.app/api/list-approved-item',{
           headers: {
             Authorization: `${(localStorage.getItem('token'))}`,
           },

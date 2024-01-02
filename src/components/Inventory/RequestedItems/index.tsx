@@ -29,7 +29,7 @@ const RequestedItems: React.FC<IRequestedItems> = ({user,query}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/list-requested-item',{
+        const response = await axios.get('https://inventoryserver.adaptable.app/api/list-requested-item',{
           headers: {
             Authorization: `${(localStorage.getItem('token'))}`,
           },
@@ -48,7 +48,7 @@ const RequestedItems: React.FC<IRequestedItems> = ({user,query}) => {
   }, [approve,decline]);
 
   const handleApprove =(id:any,userName:string,name:string)=>{
-    axios.delete(`http://localhost:7000/api/user/requests/${id}`,{
+    axios.delete(`https://inventoryserver.adaptable.app/api/user/requests/${id}`,{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },
@@ -57,7 +57,7 @@ const RequestedItems: React.FC<IRequestedItems> = ({user,query}) => {
         console.log(response.data)
         toast.success("Item successfully approved",{theme:theme?"dark":"light"})
         setApprove(true)
-        const socket = io('http://localhost:7000')
+        const socket = io('https://inventoryserver.adaptable.app')
         const notify:string = `${userName}, ${name} was approved`
         socket?.emit("replyMessage",notify)
     })
@@ -68,7 +68,7 @@ const RequestedItems: React.FC<IRequestedItems> = ({user,query}) => {
   }
 
   const handleDecline =(id:any)=>{
-    axios.put(`http://localhost:7000/api/admin/decline-item/${id}`,{},{
+    axios.put(`https://inventoryserver.adaptable.app/api/admin/decline-item/${id}`,{},{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },

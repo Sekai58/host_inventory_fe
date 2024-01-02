@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = ()=>{
-    const {itemsCount,error,loading} = useAxios('http://localhost:7000/api/count-item')
+    const {itemsCount,error,loading} = useAxios('https://inventoryserver.adaptable.app/api/count-item')
     const [items,setItems] = useState<any>([])
 
     useEffect(()=>{
-        axios.get('http://localhost:7000/api/admin/list-item',{
+        axios.get('https://inventoryserver.adaptable.app/api/admin/list-item',{
             headers: {
               Authorization: `${(localStorage.getItem('token'))}`,
             },

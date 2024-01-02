@@ -22,7 +22,7 @@ const Notifications: React.FC= () => {
     
  useEffect(() => {
     axios
-    .get('http://localhost:7000/api/admin/list-message',{
+    .get('https://inventoryserver.adaptable.app/api/admin/list-message',{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },
@@ -40,7 +40,7 @@ const Notifications: React.FC= () => {
   }, [countChange,showCount]);
 
   const handleCount = (id:any)=>{
-    axios.put(`http://localhost:7000/api/admin/update-message/${id}`,{},{
+    axios.put(`https://inventoryserver.adaptable.app/api/admin/update-message/${id}`,{},{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },

@@ -49,7 +49,7 @@ const Users:React.FC =()=>{
 
     const handleConfirm = () => {
         const fetch = async() =>{
-          await axios.put(`http://localhost:7000/api/admin/change-role/${confirm}`,{},{
+          await axios.put(`https://inventoryserver.adaptable.app/api/admin/change-role/${confirm}`,{},{
             headers: {
               Authorization: `${(localStorage.getItem('token'))}`,
             },

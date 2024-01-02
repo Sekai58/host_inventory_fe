@@ -34,7 +34,7 @@ const ResetPassword = ()=>{
       const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
         setProgress(70)
         console.log("over here",data)
-        await axios.post("http://localhost:7000/api/user/auth/resetpassword",{"password":data.password},{
+        await axios.post("https://inventoryserver.adaptable.app/api/user/auth/resetpassword",{"password":data.password},{
             headers: {
               Authorization: `${token}`,
             },})

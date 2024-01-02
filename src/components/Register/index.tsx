@@ -30,7 +30,7 @@ const Forms=()=> {
   } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios.post("http://localhost:7000/api/user/register",data)
+    axios.post("https://inventoryserver.adaptable.app/api/user/register",data)
     .then(res=>{
       console.log(res.data)
       toast.success(res.data,{theme:theme?"dark":"light"});

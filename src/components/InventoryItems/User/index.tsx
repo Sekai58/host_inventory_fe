@@ -20,7 +20,7 @@ const InventoryItemsUser = (props:any) => {
   })
 
   useEffect(()=>{
-    axios.get('http://localhost:7000/api/admin/list-item',{
+    axios.get('https://inventoryserver.adaptable.app/api/admin/list-item',{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },
@@ -35,7 +35,7 @@ const InventoryItemsUser = (props:any) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/list-requested-item',{
+        const response = await axios.get('https://inventoryserver.adaptable.app/api/list-requested-item',{
           headers: {
             Authorization: `${(localStorage.getItem('token'))}`,
           },
@@ -56,7 +56,7 @@ const InventoryItemsUser = (props:any) => {
   const handleRequest =(id:string,name:string,available:number)=>{
     console.log("id here",id)
     if(available<=0)return 0
-    axios.post('http://localhost:7000/api/user/requests',{"id":id,"userName":props.user._id,"message":`${props.user.userName} requested ${name}`},{
+    axios.post('https://inventoryserver.adaptable.app/api/user/requests',{"id":id,"userName":props.user._id,"message":`${props.user.userName} requested ${name}`},{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },
@@ -65,7 +65,7 @@ const InventoryItemsUser = (props:any) => {
         console.log(response.data)
         toast.success("Item successfully requested",{theme:theme?"dark":"light"})
         
-        const socket = io('http://localhost:7000')
+        const socket = io('https://inventoryserver.adaptable.app')
         console.log(socket)
         const notify:string = `${props.user.userName} requested ${name}`
         socket?.emit("sendMessage",notify)

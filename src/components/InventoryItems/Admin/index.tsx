@@ -33,7 +33,7 @@ const InventoryItemsAdmin = (props:any) => {
   //Get inventory data as items
   useEffect(()=>{
     const fetch = async()=>{
-    await axios.get('http://localhost:7000/api/admin/list-item',{
+    await axios.get('https://inventoryserver.adaptable.app/api/admin/list-item',{
       headers: {
         Authorization: `${(localStorage.getItem('token'))}`,
       },
@@ -52,7 +52,7 @@ const InventoryItemsAdmin = (props:any) => {
   const handleDelete =()=>{
     // const confirmDelete = confirm("Are you sure you want to delete this item?");
     // if(confirmDelete){
-      axios.delete(`http://localhost:7000/api/admin/delete-item/${delId}`,{
+      axios.delete(`https://inventoryserver.adaptable.app/api/admin/delete-item/${delId}`,{
         headers: {
           Authorization: `${(localStorage.getItem('token'))}`,
         },

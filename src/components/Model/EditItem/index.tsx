@@ -35,7 +35,7 @@ const EditItemModal: React.FC<EditItemModalProps> = ({onClose}) => {
       const dispatch =useDispatch()
       const onSubmit: SubmitHandler<IItems> = async (data,e) => {
         e?.preventDefault()
-        await axios.put(`http://localhost:7000/api/admin/edit-item`,{...data,"_id":itemValue._id},{
+        await axios.put(`https://inventoryserver.adaptable.app/api/admin/edit-item`,{...data,"_id":itemValue._id},{
           headers: {
             Authorization: `${(localStorage.getItem('token'))}`,
           },

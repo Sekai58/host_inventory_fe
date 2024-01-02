@@ -59,7 +59,7 @@ const ProtectedRoute = () => {
 
   //Connection between user and Admin
   useEffect(()=>{
-    const socket = io('http://localhost:7000')
+    const socket = io('https://inventoryserver.adaptable.app')
     setSocket(socket)
     console.log(socket)
 
@@ -95,7 +95,7 @@ const ProtectedRoute = () => {
   //Get user info i.e. username and role
   useEffect(() => {
     const fetchdata = async()=>{
-      await axios.post('http://localhost:7000/api/user/auth',{}, {
+      await axios.post('https://inventoryserver.adaptable.app/api/user/auth',{}, {
         headers: {
           Authorization: `${(localStorage.getItem('token'))}`,
         },

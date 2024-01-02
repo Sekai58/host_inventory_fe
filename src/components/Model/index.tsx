@@ -24,7 +24,7 @@ const AddItemModal: React.FC<AddItemModalProps> = ({onClose}) => {
 
       const onSubmit: SubmitHandler<IItems> = async (data,e) => {
         e?.preventDefault()
-        await axios.post("http://localhost:7000/api/admin/add-item",data,{
+        await axios.post("https://inventoryserver.adaptable.app/api/admin/add-item",data,{
           headers: {
             Authorization: `${(localStorage.getItem('token'))}`,
           },
