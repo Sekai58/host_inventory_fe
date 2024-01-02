@@ -27,7 +27,7 @@ const ForgetPassword = ()=>{
 
       const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
         setProgress(70)
-        await axios.post("http://localhost:7000/api/user/resetpassword",data)
+        await axios.post("https://inventoryserver.adaptable.app/api/user/resetpassword",data)
         .then(res=>{console.log(res.data.token)
           toast.success("Check your email to reset password")
           navigate('/login')
