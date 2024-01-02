@@ -32,7 +32,7 @@ const Login: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
     setProgress(70)
-    await axios.post("http://localhost:7000/api/user/login",data)
+    await axios.post("https://inventoryserver.adaptable.app/api/user/login",data)
     .then(res=>{console.log(res.data.token)
       localStorage.setItem("token",res.data.token)
       toast.success(`Welcome ${data.userName}`,{theme:theme?"dark":"light"})
