@@ -20,7 +20,7 @@ const Users:React.FC =()=>{
       
    useEffect(() => {
       axios
-      .get('http://localhost:7000/api/admin/list-user',{
+      .get('https://inventoryserver.adaptable.app/api/admin/list-user',{
         headers: {
           Authorization: `${(localStorage.getItem('token'))}`,
         },
