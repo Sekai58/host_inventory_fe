@@ -19,6 +19,9 @@ const Home = lazy(()=> import("./components/Home"))
 // import Users from './components/Users'
 const Users = lazy(()=> import('./components/Users'))
 import { authenticate } from './features/showSlice'
+// import NotFound from './components/NotFound/NotFound'
+const NotFound = lazy(()=> import('./components/NotFound'))
+
 
 
 function App() {
@@ -43,22 +46,23 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path='/*' element={(data)?<Suspense><Home/></Suspense>:<Suspense><Navigate to='/login'/></Suspense>}></Route>
+          <Route path='/' element={(data)?<Suspense><Home/></Suspense>:<Suspense><Navigate to='/login'/></Suspense>}></Route>
           {/* <Route path='/*' element={(data)?<Home/>:<Navigate to='/login'/>}></Route> */}
-          <Route path='/users/*' element={(data)?<Suspense><Users/></Suspense>:<Suspense><Navigate to='/login'/></Suspense>}></Route>
+          <Route path='/users' element={(data)?<Suspense><Users/></Suspense>:<Suspense><Navigate to='/login'/></Suspense>}></Route>
           {/* <Route path='/users/*' element={(data)?<Users/>:<Navigate to='/login'/>}></Route> */}
-          <Route path="/register/*" element={<Suspense><Register/></Suspense>}></Route>
+          <Route path="/register" element={<Suspense><Register/></Suspense>}></Route>
           {/* <Route path="/register/*" element={<Register/>}></Route> */}
           <Route path="/login/*" element={(data) ? <Suspense><Navigate to="/auth" /></Suspense> : <Suspense><Login /></Suspense>} />
           {/* <Route path="/login/*" element={(data) ? <Navigate to="/auth" />: <Login />} /> */}
-          <Route path="/auth/*" element={data ? <Suspense><Inventory /></Suspense> : <Suspense><Navigate to="/login" /></Suspense>} />
+          <Route path="/auth" element={data ? <Suspense><Inventory /></Suspense> : <Suspense><Navigate to="/login" /></Suspense>} />
           {/* <Route path="/auth/*" element={data ?<Inventory />: <Navigate to="/login" />} /> */}
           <Route path="/logout" element={<Suspense><Navigate to='/login' replace /></Suspense>} />
           {/* <Route path="/logout" element={<Navigate to='/login' replace />} /> */}
-          <Route path="/forgetpassword/*" element={<Suspense><ForgetPassword /></Suspense>} />
+          <Route path="/forgetpassword" element={<Suspense><ForgetPassword /></Suspense>} />
           {/* <Route path="/forgetpassword/*" element={<ForgetPassword />} /> */}
-          <Route path="/resetpassword/*" element={<Suspense><ResetPassword/></Suspense>} />
+          <Route path="/resetpassword" element={<Suspense><ResetPassword/></Suspense>} />
           {/* <Route path="/resetpassword/*" element={<ResetPassword/>} /> */}
+          <Route path='*' element={<Suspense><NotFound/></Suspense>}></Route>
         </Routes>
       </BrowserRouter>
       </main>
