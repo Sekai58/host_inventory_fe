@@ -27,5 +27,5 @@ After installing the frontend dependencies, run the following command in the sam
 npm run dev
 ```
 
-##Link to demo:https://inventory001.netlify.app/login
+##Link to demo:https://inventory001.netlify.app
 
